@@ -34,7 +34,7 @@ def ispalindrome(p):
 
 #### Fonction principale
 # Fonction principale qui fait tourner le code
-# en testant si les mots mis dans la liste sont palindromes
+# en testant si les mots mis dans la liste sont palindromes ou pas
 
 def main():
     """
