@@ -8,6 +8,7 @@ from unidecode import unidecode
 
 #### Fonction secondaire
 # La fonction ispalindrome() permet de renvoyer si le mot en paramètre est un palindrome
+
 def ispalindrome(p):
     """
     Détermine si un mot est palindrome
@@ -22,26 +23,21 @@ def ispalindrome(p):
     # replace() enlève les espaces
     # translate(...) enlève les ponctuations
     # str[::-1] renverse la chaîne de caractère
-    p_normal = unidecode(p)
-                .lower()
-                .replace(" ", "")
-                .translate(str.maketrans('', '', string.punctuation))
-    p_invers = unidecode(p)
-                .lower().replace(" ", "")
-                .translate(str.maketrans('', '', string.punctuation))[::-1]
-
-    return p_normal == p_invers
+    #
+    #---Version normale---#
+    #
+    # p_normal = unidecode(p).lower().replace(" ", "").translate(str.maketrans('', '', string.punctuation))
+    # p_invers = unidecode(p).lower().replace(" ", "").translate(str.maketrans('', '', string.punctuation))[::-1]
+    #
+    # return p_normal == p_invers
 
     #---Version récursive---#
-    # p = unidecode(p)
-    #     .lower()
-    #     .replace(" ", "")
-    #     .translate(str.maketrans('', '', string.punctuation)))
-    # if len(p) <= 0:
-    #     return True
-    # if p[0] == p[-1]:
-    #     return ispalindrome(p[1:-1])
-    # return False
+    p = unidecode(p).lower().replace(" ", "").translate(str.maketrans('', '', string.punctuation))
+    if len(p) <= 0:
+        return True
+    if p[0] == p[-1]:
+        return ispalindrome(p[1:-1])
+    return False
     #-----------------------#
 
 #### Fonction principale
@@ -53,7 +49,7 @@ def main():
     Affiche les mots qui sont des palindromes
     """
     for s in ["radar", "kayak", "level", "rotor", "civique",
-              "deifie","Oh ! cela te perd, répéta l'écho"]:
+              "deifie","Oh ! cela te perd, répéta l'écho","12341321"]:
         print(s, ispalindrome(s))
 
 
