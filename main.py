@@ -22,15 +22,27 @@ def ispalindrome(p):
     # replace() enlève les espaces
     # translate(...) enlève les ponctuations
     # str[::-1] renverse la chaîne de caractère
-    p_normal = (unidecode(p)
+    p_normal = unidecode(p)
                 .lower()
                 .replace(" ", "")
-                .translate(str.maketrans('', '', string.punctuation)))
-    p_invers = (unidecode(p)
+                .translate(str.maketrans('', '', string.punctuation))
+    p_invers = unidecode(p)
                 .lower().replace(" ", "")
-                .translate(str.maketrans('', '', string.punctuation)))[::-1]
+                .translate(str.maketrans('', '', string.punctuation))[::-1]
 
     return p_normal == p_invers
+
+    #---Version récursive---#
+    # p = unidecode(p)
+    #     .lower()
+    #     .replace(" ", "")
+    #     .translate(str.maketrans('', '', string.punctuation)))
+    # if len(p) <= 0:
+    #     return True
+    # if p[0] == p[-1]:
+    #     return ispalindrome(p[1:-1])
+    # return False
+    #-----------------------#
 
 #### Fonction principale
 # Fonction principale qui fait tourner le code
